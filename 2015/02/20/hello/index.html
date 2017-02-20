@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next muse use-motion" lang="zh">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -87,12 +87,16 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="hi-liz">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="这是我的第一个文章的呀！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hello">
+<meta property="og:url" content="http://yoursite.com/2015/02/20/hello/index.html">
 <meta property="og:site_name" content="hi-liz">
+<meta property="og:description" content="这是我的第一个文章的呀！">
+<meta property="og:updated_time" content="2017-02-20T13:00:42.373Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hi-liz">
+<meta name="twitter:title" content="hello">
+<meta name="twitter:description" content="这是我的第一个文章的呀！">
 
 
 
@@ -106,7 +110,7 @@
     motion: true,
     duoshuo: {
       userId: '0',
-      author: '博主'
+      author: 'Author'
     },
     algolia: {
       applicationID: '',
@@ -120,16 +124,16 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2015/02/20/hello/"/>
 
 
 
 
 
-  <title> hi-liz </title>
+  <title> hello | hi-liz </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh">
 
   
 
@@ -151,9 +155,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -194,7 +196,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            首页
+            Accueil
           </a>
         </li>
       
@@ -204,7 +206,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            归档
+            Archives
           </a>
         </li>
       
@@ -214,7 +216,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            标签
+            Tags
           </a>
         </li>
       
@@ -236,9 +238,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -247,12 +249,12 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/02/20/gulp/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/02/20/hello/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="李直">
     <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.png">
+    <meta itemprop="image" content="/images/avatar.gif">
   </span>
 
   <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -271,10 +273,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/02/20/gulp/" itemprop="url">
-                  gulp
-                </a>
+                hello
               
             
           </h1>
@@ -287,10 +286,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posté le</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-02-20T22:06:55+08:00">
-                2016-02-20
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-02-20T20:59:15+08:00">
+                2015-02-20
               </time>
             
 
@@ -325,102 +324,22 @@
       
 
       
-        
-          
-            <p>##gulp的操作的步骤</p>
-<ol>
-<li>引用gulp 通过指令npm install gulp-cli -g 全局安装gulp</li>
-<li>确保 gulp-cli 全局安装了，执行npm init -y 生成json文件</li>
-<li>npm install gulp –save-dev</li>
-<li>创建 一个文件 gulpfile.js </li>
-<li>获取gulp     var gulp = require(“gulp”);<br>####gulp 的四个核心的方法<ol>
-<li>gulp.task(“任务名”,function(){})</li>
-<li>gulp.src(“源文件”)</li>
-<li>gulp.dest(“./dist”) // 文件输出的路径</li>
-<li>gulp.watch([“监视的文件1”,”文件2”]，[“test执行的任务名”])</li>
-</ol>
-</li>
-</ol>
-<p>###对js 的代码进行压缩的公式</p>
-<pre><code>1. 引入文件 uglify var uglify = require(&quot;gulp-uglify&quot;)
-    合并的插件 concat var concat =require(&quot;gulp-concat&quot;)
-2.创建任务 //获得css代码压缩合并的插件
-    gulp.task(&quot;test&quot;,function(){
-        //匹配多个的时候使用数组的形式
-        gulp.src([&quot;./app.js&quot;,&quot;./swipe.js&quot;])
-        //文件合并后的的输出要有接受的吧
-        .pipe(concat(&quot;all.js&quot;))
-        .pipe(uglify())
-        .pipe(gulp.dest(&quot;./dist&quot;))
-    });
-</code></pre><p>###对css 的代码进行压缩的公式<br>        //获得cssnano 的对象<br>        var cssnano =require(“gulp-cssnano”);</p>
-<pre><code>//开始任务
-gulp.task(&quot;cssTest&quot;,function(){
-    //获得源文件
-    gulp.src([&quot;base.css&quot;,&quot;index.css&quot;])
-    .pipe(concat(&quot;allCss.css&quot;))
-    .pipe(cssnano())
-    .pipe(gulp.dest(&quot;./dist &quot;))
-})
-</code></pre><p>###对html 的代码进行压缩的公式</p>
-<pre><code>//获得htmlmin的对象
-var htmlmin =require(&quot;gulp-htmlmin&quot;)
+        <p>这是我的第一个文章的呀！</p>
 
-//开始任务
-
-gulp.task(&quot;htmlTest&quot;,function(){
-    gulp.src(&quot;./index.html&quot;)
-    //html的页面复杂，这里要传入参数值为true表示压缩
-    .pipe(htmlmin({collapseWhitespace:true,removeComments:true}))
-    .pipe(gulp.dest(&quot;./dist/&quot;))
-})
-</code></pre><p>###使用watch监视</p>
-<pre><code>//watch 的使用
-//监视文件的变化，并且调用制指定的任务处理代码
-//第一个参数的值监视的多个文件，第二个参数想要执行的任务
-// gulp.watch([&quot;app.js&quot;,&quot;swipe.js&quot;],[&quot;test&quot;])
-
-gulp.task(&quot;watch&quot;,function(){
-    gulp.watch([&quot;app.js&quot;,&quot;swipe.js&quot;],[&quot;test&quot;])
-})
-</code></pre><p>###gulp和browser-sync 联合起来使用</p>
-<pre><code>//获得gulp对象
-//生成gulp 先初始化一下 npm init -y
-
-//npm install gulp --save-dev
-var gulp =require(&quot;gulp&quot;);
-
-//引入browser-sync 
-
-var browserSync =require(&quot;browser-sync&quot;);
-
-//j新建一个任务
-
-gulp.task(&quot;htmlTest&quot;,function(){
-    gulp.src(&quot;index.html&quot;)
-    .pipe(gulp.dest(&quot;./dist&quot;))
-})
-
-//新建一个监视
- gulp.task(&quot;watch&quot;,function(){
-    //browserSync 有个init的初始化的方法
-    browserSync.init({
-        server:&quot;./dist&quot;,//制定一个网站的根目录
-        files:&quot;./dist/index.html&quot;
-    })
-    gulp.watch(&quot;./index.html&quot;,[&quot;htmlTest&quot;])
- })
-</code></pre>
-          
-        
       
     </div>
 
     <div>
       
+        
+
+      
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
@@ -429,21 +348,38 @@ gulp.task(&quot;htmlTest&quot;,function(){
       
 
       
-
+        
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/17/hello-world/" rel="prev" title="Hello World ,好的">
+                Hello World ,好的 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
           
           </div>
@@ -451,6 +387,10 @@ gulp.task(&quot;htmlTest&quot;,function(){
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -474,7 +414,7 @@ gulp.task(&quot;htmlTest&quot;,function(){
       <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/avatar.png"
+               src="/images/avatar.gif"
                alt="李直" />
           <p class="site-author-name" itemprop="name">李直</p>
            
@@ -486,8 +426,8 @@ gulp.task(&quot;htmlTest&quot;,function(){
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">日志</span>
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">articles</span>
               </a>
             </div>
           
@@ -541,11 +481,11 @@ gulp.task(&quot;htmlTest&quot;,function(){
 
 
 <div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  主题 -
+  Thème -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>
@@ -620,6 +560,10 @@ gulp.task(&quot;htmlTest&quot;,function(){
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
