@@ -290,6 +290,223 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/05/06/试一试利用node-js-搭建一个小的聊天室/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="李直">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="hi-liz">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="hi-liz" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/06/试一试利用node-js-搭建一个小的聊天室/" itemprop="url">
+                  试一试利用node.js 搭建一个小的聊天室
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-05-06T20:53:47+08:00">
+                2016-05-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>##server.js 服务器端的代码</p>
+<pre><code>var net = require(&apos;net&apos;);
+//创建一个server网络服务器
+var server =net.createServer();
+</code></pre><p>//监听客户端的链接成功事件，设置请求回调函数<br>//当客户端和服务器链接成功后，服务器会将当前与我链接的IP地址+端口号 封装<br>//抽象成一个socket的对象，然后传递给回调函数<br>//每一个client的链接都会生成新的socket 唯一的<br>//假设有是个client ,所有的socket都先保存起来，然后遍历给每个client的对象</p>
+<pre><code>var arr =[];
+server.on(&apos;connection&apos;,function(socket){
+// console.log(&quot;有客户链接&quot;);
+//得到当发送的客户端的IP和端口号 因为ip 前面有::ffff:所以用slice截取
+var myHost =socket.remoteAddress.slice(7);
+var myPort =socket.remotePort;
+
+//当用户上线时候通知其他用户
+if(arr.length &gt;0){
+    for(var i =0 ;i&lt;arr.length ;i++){
+        arr[i].socket.write(myHost+&apos;:&apos;+myPort+&apos;上线了&apos;);
+    }
+}
+
+//不要忘记这个:号 ！！！！！记得你pushd的是对象进去
+arr.push({name:myHost+&apos;:&apos;+myPort,socket:socket});
+//预防有客户端断开
+socket.on(&apos;error&apos;,function(){
+    console.log(&apos;客户端断开了&apos;)
+})
+
+//console.log(socket.remoteAddress) //客户端远程ip
+//console.log(socket.remotePort)    //客户端远程端口 
+socket.write(&quot;hello&quot;);
+//通过监听每一个客户端的发送数据事件
+//只要客服端调用了write方法，服务器就可以接收到数据
+socket.on(&apos;data&apos;,function(data){
+    //127.0.0.1:54261@abc
+    // var reg =/\d{3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\.*/;
+    //client发送来的的数据
+    data = data.toString()
+    var reg =/(\d{3}(?:\.\d{1,3}){3}:\d*)@(.*)/
+
+    if(reg.test(data)){
+        // console.log(reg.test(data))
+        //实现用户的私聊的功能，当用户输入127.0.0.1:54261@abc的时候就可以和这个用户
+        //进行私聊，传输的内容就是abc 这个时候就要用正则来判断了
+        //实现广播的功能当一个用户输入的时候，所有的用户都可以收到
+        //这里的实现逻辑是：正则匹配当前的ip+port的，然后循环遍历数组的中的每一项
+        //当数组中的arr[i]的ip +port等于这个的时候这个时候就把消息法发送给它，但是这个
+        //时候你怎么取出数组的中的那一项对额ip+port的值呢，这个时候你就应该=想到了
+        //当初你把socket push 到数组中的时候，你可以push 进去一个对象的形式
+        //{name:ip+port,socket:socket}
+        // console.log(&apos;私聊&apos;)
+        //一定会要测试号正则可用吗？利用正则的分组，提取，取消捕获
+        var arrReg =reg.exec(data.toString());
+        console.log(arrReg[1])
+        console.log(arr[1].name)
+
+        if(arr.length &gt; 0){
+            for(var i =0 ;i&lt; arr.length ;i++){
+                if(arr[i].name.toString().trim() == arrReg[1].toString()){
+                    arr[i].socket.write(arrReg[2]);
+                }
+            }
+        }
+    }else{
+        if(arr.length &gt;0){
+            for(var i =0 ;i&lt;arr.length ;i++){
+                if(arr[i].socket != socket){
+                    arr[i].socket.write((myHost+&apos;:&apos;+myPort+&apos;广播说:&apos;+data).trim())
+                }
+            }
+        }
+    }
+
+    // console.log((myHost+&apos;:&apos;+myPort+&apos;说:&apos;+data).trim());   
+})  
+</code></pre><p>})</p>
+<p>//3.开启服务器,分配端口号，设置监听成功之后回调函数</p>
+<pre><code>server.listen(3000,function(){
+    console.log(&apos;服务器创建成功,监听3000端口&apos;);
+})
+</code></pre><p>##client.js的代码 </p>
+<pre><code>var net = require(&apos;net&apos;);
+</code></pre><p>//3000是服务器的端口号<br>//// 1. 创建一个连接客户端，得到该客户端自动分配的Socket对象(端口号+IP地址)<br>// 对于客户端来说，客户端会自动分配一个端口号用来与服务器进行通信</p>
+<pre><code>var client =net.createConnection(3000,&apos;127.0.0.1&apos;);
+</code></pre><p>//客户端和服务器建立连接成功后会触发一个回调函数<br>//只会触发一次</p>
+<pre><code>client.on(&apos;connect&apos;,function(){
+    console.log(&apos;客户端和服务器连接成功&apos;);
+    //监听用户的输入的内容
+    process.stdin.on(&apos;data&apos;,function(data){
+        client.write(data)
+    })
+})
+</code></pre><p>//监听client 和data事件，拿到 服务器发送给自己的消息</p>
+<pre><code>client.on(&apos;data&apos;,function(data){
+    //服务器发送的data
+    var data = data.toString();
+    console.log(data)
+})
+</code></pre><p>注意每次生成的socket的对象的都是唯一的这点不要 忘记：</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/04/26/nodejs实现less自动转css/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -682,7 +899,7 @@ gulp.task(&quot;htmlTest&quot;,function(){
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
