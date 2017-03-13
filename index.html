@@ -290,7 +290,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/05/06/试一试利用node-js-搭建一个小的聊天室/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/06/试一试利用node-js-搭建一个小的聊天室/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="李直">
@@ -315,7 +315,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/05/06/试一试利用node-js-搭建一个小的聊天室/" itemprop="url">
+                <a class="post-title-link" href="/2016/12/06/试一试利用node-js-搭建一个小的聊天室/" itemprop="url">
                   试一试利用node.js 搭建一个小的聊天室
                 </a>
               
@@ -332,8 +332,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-05-06T20:53:47+08:00">
-                2016-05-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-06T20:53:47+08:00">
+                2016-12-06
               </time>
             
 
@@ -507,7 +507,7 @@ socket.on(&apos;data&apos;,function(data){
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/04/26/nodejs实现less自动转css/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/23/nodejs实现less自动转css/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="李直">
@@ -532,7 +532,7 @@ socket.on(&apos;data&apos;,function(data){
             
               
                 
-                <a class="post-title-link" href="/2016/04/26/nodejs实现less自动转css/" itemprop="url">
+                <a class="post-title-link" href="/2016/11/23/nodejs实现less自动转css/" itemprop="url">
                   nodejs实现less自动转css
                 </a>
               
@@ -549,8 +549,8 @@ socket.on(&apos;data&apos;,function(data){
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-26T20:01:23+08:00">
-                2016-04-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-23T20:01:23+08:00">
+                2016-11-23
               </time>
             
 
@@ -621,6 +621,200 @@ fs.watchFile(lessPath,{interval:2000},
 
 })
 </code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/05/26/angular的一点小小的学习/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="李直">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="hi-liz">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="hi-liz" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/26/angular的一点小小的学习/" itemprop="url">
+                  angular的一些指令总结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-05-26T22:06:55+08:00">
+                2016-05-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>ng-app</li>
+<li>ng-controller</li>
+<li>ng-init</li>
+<li>ng-model</li>
+<li></li>
+<li>ng-bind 和 ng-cloak 用来解决加载时闪烁的问题 <p ng-bind="name"></p></li>
+<li>ng-cloak 是利用.cloak{display:none}</li>
+<li>ng-bind-html 渲染html的要引入ngSanitize第三方的模块</li>
+</ul>
+<ul>
+<li>ng-repeat ,页面的重复的渲染 </li><li ng-repeat="item in data"></li>
+<li>$even,$odd,$index,$first,$last,$middle</li>
+<li><p>可以嵌套</p>
+</li>
+<li><p>ng-class  &lt;li ng-class=”{‘A’:’red’,’B’:’blue’,’C’:’green’}[item.salary]”</p>
+</li>
+<li>ng-repeat=”item in data”&gt;</li>
+<li>,,</li>
+<li><p></p></li> 隔行换色<p></p>
+
+<li><p>ng-hide 和ng-show  通过display 属性</p>
+</li>
+<li><p>ng-if 直接删除了dom</p>
+</li>
+<li><p>ng-switch -when 相当于switch case 了</p>
+</li>
+<li><div ng-switch="name"></div></li>
+<li><div ng-switch-when="小明">我是小明</div></li>
+<li><div ng-switch-when="小红">我是小红</div></li>
+<li><div ng-switch-when="小月">我是小月</div></li>
+<li></li>
+</ul>
+<p>常见的事件指令</p>
+<ul>
+<li><ol>
+<li>ng-blur</li>
+</ol>
+</li>
+<li><ol>
+<li>ng-focus</li>
+</ol>
+</li>
+<li><ol>
+<li>ng-click</li>
+</ol>
+</li>
+<li><ol>
+<li>ng-copy</li>
+</ol>
+</li>
+<li><ol>
+<li>ng-dbclick</li>
+</ol>
+</li>
+<li><ol>
+<li>ng-submit</li>
+</ol>
+</li>
+<li>常用指令</li>
+<li>ng-checked</li>
+<li>ng-selected</li>
+<li>ng-disabled</li>
+<li>ng-readonly</li>
+</ul>
+<p>自定义的指令</p>
+<ul>
+<li>myBtn 的驼峰的方式进行命名的，页面是小写字母用my-btn</li>
+<li><p>ECMA 的四种形式 ng-clude                                        </p>
+</li>
+<li><p>ink</p>
+</li>
+<li>ngular的开发思想是以数据（Data）为中心，尽量不操作DOM，如果必须要操作DOM，只在directive（指令）里操作</li>
+</ul>
+
           
         
       
@@ -863,7 +1057,7 @@ gulp.task(&quot;htmlTest&quot;,function(){
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/01/25/原型的prototype属性/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/01/10/原型的prototype属性/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="李直">
@@ -888,7 +1082,7 @@ gulp.task(&quot;htmlTest&quot;,function(){
             
               
                 
-                <a class="post-title-link" href="/2016/01/25/原型的prototype属性/" itemprop="url">
+                <a class="post-title-link" href="/2016/01/10/原型的prototype属性/" itemprop="url">
                   原型的prototype属性的再次总结
                 </a>
               
@@ -905,8 +1099,8 @@ gulp.task(&quot;htmlTest&quot;,function(){
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-01-25T19:25:55+08:00">
-                2016-01-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-01-10T19:25:55+08:00">
+                2016-01-10
               </time>
             
 
@@ -1044,7 +1238,7 @@ Js中的函数是一个具有变量作用域隔离特性的内存结构，即一
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/12/25/js性能代码的优化/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/12/20/js性能代码的优化/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="李直">
@@ -1069,7 +1263,7 @@ Js中的函数是一个具有变量作用域隔离特性的内存结构，即一
             
               
                 
-                <a class="post-title-link" href="/2015/12/25/js性能代码的优化/" itemprop="url">
+                <a class="post-title-link" href="/2015/12/20/js性能代码的优化/" itemprop="url">
                   js性能代码的优化
                 </a>
               
@@ -1086,8 +1280,8 @@ Js中的函数是一个具有变量作用域隔离特性的内存结构，即一
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-12-25T20:30:55+08:00">
-                2015-12-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-12-20T20:30:55+08:00">
+                2015-12-20
               </time>
             
 
@@ -1190,7 +1384,7 @@ Js中的函数是一个具有变量作用域隔离特性的内存结构，即一
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/06/25/h5c3的学习体验/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/13/ajax和跨域 的一些问题/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="李直">
@@ -1215,7 +1409,160 @@ Js中的函数是一个具有变量作用域隔离特性的内存结构，即一
             
               
                 
-                <a class="post-title-link" href="/2015/06/25/h5c3的学习体验/" itemprop="url">
+                <a class="post-title-link" href="/2015/08/13/ajax和跨域 的一些问题/" itemprop="url">
+                  ajax和跨域 的一些问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-13T23:00:00+08:00">
+                2015-08-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>ReadyState 的5个值表示的含义：<br>       readyState=0表示xhr对象创建完成<br>      readyState=1表示已经发送了请求<br>       2 浏览器已经收到了服务器响应的数据<br>       3 正在解析数据<br>       4 数据已经解析完成，可以使用了     </p>
+<ul>
+<li>ajax的xhr对象的创建</li>
+<li>get方法的参数是要拼接到url上的 post的是通过xhr.send()发送的，post要设置响应头xhr.setHeaders();</li>
+<li>xhr.open(‘get’,url,true)</li>
+<li>xhr.readyStateonchange</li>
+<li><p>xhr.status 的状态<br>  200表示响应成功<br>  301 永久重定向<br>  302临时性重定向<br>  404没有找到请求的资源<br>  500服务器端错误</p>
+<p>jsonp的跨域问题 ，因为同源策略的原因，不同域名，协议，端口之间的传输数据造成跨域问题，服务端返回的是函数的回调callback(data)，jsonp的请求方式一定是get</p>
+<p>  //封装myJsonp，用来跨域请求<br>function crossDomain (url,arg,fn){<br>  //拼接url<br>  var queryString =””;<br>  //arg是对象的key –value for in 循环<br>  for(var key in arg){</p>
+<pre><code>queryString += key +&quot;=&quot;+arg[key]+&apos;&amp;&apos;;
+</code></pre><p>  }<br>  url +=’?’+queryString<br>  //回调函数的name<br>  var callbackName =’jsonp_’+Math.random().toString().substr(2);<br>  url +=’callback=’+callbackName;<br>  //定义一个全局的函数<br>  window[callbackName]=function(data){</p>
+<pre><code>fn(data)
+</code></pre><p>  }<br>  //动态的生成script<br>  //<br>  var scriptElem =document.createElement(“script”);<br>  scriptElem.src =url;<br>  document.body.appendChild(scriptElem);<br>}<br>crossDomain(“<a href="https://api.douban.com/v2/movie/in_theaters" target="_blank" rel="external">https://api.douban.com/v2/movie/in_theaters</a>“,<br>  {start:0,count:10},function(data){<br>  console.log(data);<br>})</p>
+</li>
+</ul>
+<p>http的协议：</p>
+<pre><code>1、输入http://baidu.com,首先浏览器会找DNS解析服务器，找到对应的ip地址
+2、浏览器和百度的服务器建立三次握手(为了确保数据可以可靠的交互)
+3、把url地址加上请求的首部字段（用键值对的形式），比如请求能接受的文件类型(  content-type)、是否支持gzip压缩、用户代理&lt;user-agent&gt; &lt;/user-agent&gt; 、接受的语言、如果是POST还包含了请求体包装成一个完整的请求报文发往百度服务器
+4、百度服务器接受到请求报文之后进行解析，根据请求报文首部中的请求方法、请求地 址  标识去找到对应的文件资料，加上日期、响应的文件类型、编码、过期时间等包装  一个响 应的报文发往客户端
+5、浏览器接受到响应报文之后，把内容渲染出来，如果是html文件，并且标签里面涉及 到  了link,src属性，会重新产生一个新的请求链接 (css解析器 html解析器 v8引擎)
+</code></pre><p>Http的连接过程与性能优化</p>
+<p>网络性能优化最主要的就是要减少HTTP请求及每次响应中内容的长度。可以从连接过程中的下列方面加以考虑：</p>
+<pre><code>1、域名解析
+a)尽可能的减少域名解析次数 -- 少用外部链接文件(css/js)
+2、创建连接
+a)努力减少连接创建次数 -- 使用keep-alive避免重复连接
+3、发送请求
+a)尽力减少请求次数 - 合理设置expires时间、资源合并
+4、等待响应
+提高服务器端运行速度 - 提高数据运算及查询速度
+5、接收响应
+a)尽可能的减少响应数据长度 - 启用gzip或deflate压缩
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/06/13/h5c3的学习体验/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="李直">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="hi-liz">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="hi-liz" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/06/13/h5c3的学习体验/" itemprop="url">
                   h5c3的学习体验
                 </a>
               
@@ -1232,8 +1579,8 @@ Js中的函数是一个具有变量作用域隔离特性的内存结构，即一
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-06-25T20:00:00+08:00">
-                2015-06-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-06-13T20:00:00+08:00">
+                2015-06-13
               </time>
             
 
@@ -1373,7 +1720,7 @@ Js中的函数是一个具有变量作用域隔离特性的内存结构，即一
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/03/25/字符串中的常用的API/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/03/21/字符串中的常用的API/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="李直">
@@ -1398,7 +1745,7 @@ Js中的函数是一个具有变量作用域隔离特性的内存结构，即一
             
               
                 
-                <a class="post-title-link" href="/2015/03/25/字符串中的常用的API/" itemprop="url">
+                <a class="post-title-link" href="/2015/03/21/字符串中的常用的API/" itemprop="url">
                   字符串中的常用的API
                 </a>
               
@@ -1415,8 +1762,8 @@ Js中的函数是一个具有变量作用域隔离特性的内存结构，即一
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-03-25T19:00:55+08:00">
-                2015-03-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-03-21T19:00:55+08:00">
+                2015-03-21
               </time>
             
 
@@ -1839,7 +2186,7 @@ var arr21 =arr20.toString();
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
