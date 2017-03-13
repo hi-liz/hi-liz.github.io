@@ -87,34 +87,16 @@
 
 
 
-<meta name="description" content="##gulp的操作的步骤
-
-引用gulp 通过指令npm install gulp-cli -g 全局安装gulp
-确保 gulp-cli 全局安装了，执行npm init -y 生成json文件
-npm install gulp –save-dev
-创建 一个文件 gulpfile.js 
-获取gulp     var gulp = require(“gulp”);####gulp 的四个核心的">
+<meta name="description" content="1.每一个函数都有 一个属性 prototype该属性指向一对象. 每一个函数的该对象都是存在.(重点) 每一个由该函数作为构造器创建的对象, 都会默认连接到该对象上.如果访问对象的方法, 而对象中没有定义, 就会在这个 构造函数.prototype表示的对象中去找.创建构造函数的时候就会一起生成构造函数和原型属性，构造函数.prototype ,实例化对象中没有访问的方法，那就去原型对象中寻找！">
 <meta property="og:type" content="article">
-<meta property="og:title" content="gulp">
-<meta property="og:url" content="http://yoursite.com/2016/02/20/gulp/index.html">
+<meta property="og:title" content="原型的prototype属性的再次总结">
+<meta property="og:url" content="http://yoursite.com/2016/01/25/原型的prototype属性/index.html">
 <meta property="og:site_name" content="hi-liz">
-<meta property="og:description" content="##gulp的操作的步骤
-
-引用gulp 通过指令npm install gulp-cli -g 全局安装gulp
-确保 gulp-cli 全局安装了，执行npm init -y 生成json文件
-npm install gulp –save-dev
-创建 一个文件 gulpfile.js 
-获取gulp     var gulp = require(“gulp”);####gulp 的四个核心的">
-<meta property="og:updated_time" content="2017-02-20T14:08:54.295Z">
+<meta property="og:description" content="1.每一个函数都有 一个属性 prototype该属性指向一对象. 每一个函数的该对象都是存在.(重点) 每一个由该函数作为构造器创建的对象, 都会默认连接到该对象上.如果访问对象的方法, 而对象中没有定义, 就会在这个 构造函数.prototype表示的对象中去找.创建构造函数的时候就会一起生成构造函数和原型属性，构造函数.prototype ,实例化对象中没有访问的方法，那就去原型对象中寻找！">
+<meta property="og:updated_time" content="2017-03-13T01:48:43.090Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="gulp">
-<meta name="twitter:description" content="##gulp的操作的步骤
-
-引用gulp 通过指令npm install gulp-cli -g 全局安装gulp
-确保 gulp-cli 全局安装了，执行npm init -y 生成json文件
-npm install gulp –save-dev
-创建 一个文件 gulpfile.js 
-获取gulp     var gulp = require(“gulp”);####gulp 的四个核心的">
+<meta name="twitter:title" content="原型的prototype属性的再次总结">
+<meta name="twitter:description" content="1.每一个函数都有 一个属性 prototype该属性指向一对象. 每一个函数的该对象都是存在.(重点) 每一个由该函数作为构造器创建的对象, 都会默认连接到该对象上.如果访问对象的方法, 而对象中没有定义, 就会在这个 构造函数.prototype表示的对象中去找.创建构造函数的时候就会一起生成构造函数和原型属性，构造函数.prototype ,实例化对象中没有访问的方法，那就去原型对象中寻找！">
 
 
 
@@ -142,13 +124,13 @@ npm install gulp –save-dev
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/02/20/gulp/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/01/25/原型的prototype属性/"/>
 
 
 
 
 
-  <title> gulp | hi-liz </title>
+  <title> 原型的prototype属性的再次总结 | hi-liz </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -307,7 +289,7 @@ npm install gulp –save-dev
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/02/20/gulp/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/01/25/原型的prototype属性/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="李直">
@@ -331,7 +313,7 @@ npm install gulp –save-dev
             
             
               
-                gulp
+                原型的prototype属性的再次总结
               
             
           </h1>
@@ -346,8 +328,8 @@ npm install gulp –save-dev
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-02-20T22:06:55+08:00">
-                2016-02-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-01-25T19:25:55+08:00">
+                2016-01-25
               </time>
             
 
@@ -382,89 +364,67 @@ npm install gulp –save-dev
       
 
       
-        <p>##gulp的操作的步骤</p>
-<ol>
-<li>引用gulp 通过指令npm install gulp-cli -g 全局安装gulp</li>
-<li>确保 gulp-cli 全局安装了，执行npm init -y 生成json文件</li>
-<li>npm install gulp –save-dev</li>
-<li>创建 一个文件 gulpfile.js </li>
-<li>获取gulp     var gulp = require(“gulp”);<br>####gulp 的四个核心的方法<ol>
-<li>gulp.task(“任务名”,function(){})</li>
-<li>gulp.src(“源文件”)</li>
-<li>gulp.dest(“./dist”) // 文件输出的路径</li>
-<li>gulp.watch([“监视的文件1”,”文件2”]，[“test执行的任务名”])</li>
-</ol>
-</li>
-</ol>
-<p>###对js 的代码进行压缩的公式</p>
-<pre><code>1. 引入文件 uglify var uglify = require(&quot;gulp-uglify&quot;)
-    合并的插件 concat var concat =require(&quot;gulp-concat&quot;)
-2.创建任务 //获得css代码压缩合并的插件
-    gulp.task(&quot;test&quot;,function(){
-        //匹配多个的时候使用数组的形式
-        gulp.src([&quot;./app.js&quot;,&quot;./swipe.js&quot;])
-        //文件合并后的的输出要有接受的吧
-        .pipe(concat(&quot;all.js&quot;))
-        .pipe(uglify())
-        .pipe(gulp.dest(&quot;./dist&quot;))
-    });
-</code></pre><p>###对css 的代码进行压缩的公式<br>        //获得cssnano 的对象<br>        var cssnano =require(“gulp-cssnano”);</p>
-<pre><code>//开始任务
-gulp.task(&quot;cssTest&quot;,function(){
-    //获得源文件
-    gulp.src([&quot;base.css&quot;,&quot;index.css&quot;])
-    .pipe(concat(&quot;allCss.css&quot;))
-    .pipe(cssnano())
-    .pipe(gulp.dest(&quot;./dist &quot;))
-})
-</code></pre><p>###对html 的代码进行压缩的公式</p>
-<pre><code>//获得htmlmin的对象
-var htmlmin =require(&quot;gulp-htmlmin&quot;)
+        <p>1.每一个函数都有 一个属性 prototype<br>该属性指向一对象. 每一个函数的该对象都是存在.<br>(重点) 每一个由该函数作为构造器创建的对象, 都会默认连接到该对象上.<br>如果访问对象的方法, 而对象中没有定义, 就会在这个 构造函数.prototype<br>表示的对象中去找.<br>创建构造函数的时候就会一起生成构造函数和原型属性，构造函数.prototype ,实例化对象中没有访问的方法，那就去原型对象中寻找！</p>
+<p>2.1共享的方法放到原型中, 而独有数据与行为放在当前对象里</p>
+<p>2.2&gt; 直接给原型对象添加成员</p>
+<pre><code>Person.prototype.sayHello = function () {
+        console.log( &apos;你好, 我是 &apos; + this.name );
+    };
 
-//开始任务
 
-gulp.task(&quot;htmlTest&quot;,function(){
-    gulp.src(&quot;./index.html&quot;)
-    //html的页面复杂，这里要传入参数值为true表示压缩
-    .pipe(htmlmin({collapseWhitespace:true,removeComments:true}))
-    .pipe(gulp.dest(&quot;./dist/&quot;))
-})
-</code></pre><p>###使用watch监视</p>
-<pre><code>//watch 的使用
-//监视文件的变化，并且调用制指定的任务处理代码
-//第一个参数的值监视的多个文件，第二个参数想要执行的任务
-// gulp.watch([&quot;app.js&quot;,&quot;swipe.js&quot;],[&quot;test&quot;])
+2.3-&gt; 直接替换原型对象( 注意: 手动的添加 constructor 属性, 表示对应的构造函数     ) 
+// 让 Person.prototype 指向另一个对象. 直接赋值
+    Person.prototype = {
+        constructor: Person,
+        sayHello: function () {
+            console.log( &apos;第二种做法: 你好, 我是 &apos; + this.name );    
+        },
+    };
+</code></pre><p>针对构造函数而言, 原型就是 构造函数的 prototype 属性, 常常将其称为 原型属性.<br>针对实例对象而言, 原型就是 实例对象的 原型对象.</p>
+<p>属性搜索的原则，先在自己的自己本身内寻找找不到就去原型对象里寻找</p>
+<pre><code>1) 对象在调用方法或访问属性的时候,   首先在当前对象中查询.如果有该成员使用并停止查找.
+2) 如果没有该成员就在其原型对象中查找. 如果有该成员即使用, 并停止查找.
+3) 如果还没有就到 该对象的 原型对象 的 原型对象中查找.
+4) 最后会查到 Object.prototype 上. 如果还没有即 返回 undefined.
+</code></pre><p>函数的4种调用模式:</p>
+<pre><code>1 函数调用模式
+ 如果一个函数与任何对象都没有联系，此时就叫做函数
+ function fn() {}
+ this -》 window
 
-gulp.task(&quot;watch&quot;,function(){
-    gulp.watch([&quot;app.js&quot;,&quot;swipe.js&quot;],[&quot;test&quot;])
-})
-</code></pre><p>###gulp和browser-sync 联合起来使用</p>
-<pre><code>//获得gulp对象
-//生成gulp 先初始化一下 npm init -y
+2 方法调用模式
+ 如果一个函数是挂载在某个对象中，此时叫做方法
+ var obj = { fn: function() {} }
+ obj.fn();
+ this -&gt; obj
 
-//npm install gulp --save-dev
-var gulp =require(&quot;gulp&quot;);
+3 构造函数调用模式
+ var Person = function() {};
+ var p = new Person();
+ this -&gt; 新创建出来的实例对象
 
-//引入browser-sync 
+4 call / apply
+ 这种方式中，想让 this 指向谁，就可以指向谁！！
+在分析this问题的时候，不要管函数是怎么来的，只看函数是怎么调用的！！！
 
-var browserSync =require(&quot;browser-sync&quot;);
 
-//j新建一个任务
+1 先确定 this 是属于那个函数的
+2 在看当前函数是怎么被调用的
+setInterval 和 setTimeout 中的this都是 window
+setTimeout(function() {
+ console.log(this); // window
+}, 100);
+</code></pre><p>还有一个就是闭包的概念：</p>
+<pre><code>闭包的概念：就是一个被包裹的隔离的空间
 
-gulp.task(&quot;htmlTest&quot;,function(){
-    gulp.src(&quot;index.html&quot;)
-    .pipe(gulp.dest(&quot;./dist&quot;))
-})
+Js中的函数是一个具有变量作用域隔离特性的内存结构，即一个闭包
+定义一个函数具有闭包的特性
+闭包的概念是间接的访问被隔离的内部的数据
 
-//新建一个监视
- gulp.task(&quot;watch&quot;,function(){
-    //browserSync 有个init的初始化的方法
-    browserSync.init({
-        server:&quot;./dist&quot;,//制定一个网站的根目录
-        files:&quot;./dist/index.html&quot;
-    })
-    gulp.watch(&quot;./index.html&quot;,[&quot;htmlTest&quot;])
- })
+我的理解是，闭包就是能够读取其他函数内部变量的函数。
+它的最大用处有两个，一个是前面提到的可以读取函数内部的变量，另一个就是让这些变 量的值始终保持在内存中。
+
+闭包不是那么的神秘的，理解函数
 </code></pre>
       
     </div>
@@ -495,8 +455,8 @@ gulp.task(&quot;htmlTest&quot;,function(){
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/01/25/原型的prototype属性/" rel="next" title="原型的prototype属性的再次总结">
-                <i class="fa fa-chevron-left"></i> 原型的prototype属性的再次总结
+              <a href="/2015/12/25/js性能代码的优化/" rel="next" title="js性能代码的优化">
+                <i class="fa fa-chevron-left"></i> js性能代码的优化
               </a>
             
           </div>
@@ -505,8 +465,8 @@ gulp.task(&quot;htmlTest&quot;,function(){
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/04/26/nodejs实现less自动转css/" rel="prev" title="nodejs实现less自动转css">
-                nodejs实现less自动转css <i class="fa fa-chevron-right"></i>
+              <a href="/2016/02/20/gulp/" rel="prev" title="gulp">
+                gulp <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

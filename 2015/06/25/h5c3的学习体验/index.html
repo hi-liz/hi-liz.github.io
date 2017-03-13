@@ -1,0 +1,739 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="音频，视屏的标签 和一些标签属性的设置     autoplay 自动播放controls 是否显不默认播放控件loop 循环播放可以写MP3,ogg.等来兼容
+ 
+
+autoplay 自动播放controls 是否显示默认播放控件loop 循环播放width 设置播放窗口宽度height 设置播放窗口的高度（查询浏览器支持情况）
+###拖曳元素    页面中设置了draggable=”true”">
+<meta property="og:type" content="article">
+<meta property="og:title" content="h5c3的学习体验">
+<meta property="og:url" content="http://yoursite.com/2015/06/25/h5c3的学习体验/index.html">
+<meta property="og:site_name" content="hi-liz">
+<meta property="og:description" content="音频，视屏的标签 和一些标签属性的设置     autoplay 自动播放controls 是否显不默认播放控件loop 循环播放可以写MP3,ogg.等来兼容
+ 
+
+autoplay 自动播放controls 是否显示默认播放控件loop 循环播放width 设置播放窗口宽度height 设置播放窗口的高度（查询浏览器支持情况）
+###拖曳元素    页面中设置了draggable=”true”">
+<meta property="og:updated_time" content="2017-03-13T02:02:39.749Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="h5c3的学习体验">
+<meta name="twitter:description" content="音频，视屏的标签 和一些标签属性的设置     autoplay 自动播放controls 是否显不默认播放控件loop 循环播放可以写MP3,ogg.等来兼容
+ 
+
+autoplay 自动播放controls 是否显示默认播放控件loop 循环播放width 设置播放窗口宽度height 设置播放窗口的高度（查询浏览器支持情况）
+###拖曳元素    页面中设置了draggable=”true”">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/06/25/h5c3的学习体验/"/>
+
+
+
+
+
+  <title> h5c3的学习体验 | hi-liz </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hi-liz</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/06/25/h5c3的学习体验/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="李直">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="hi-liz">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="hi-liz" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                h5c3的学习体验
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-06-25T20:00:00+08:00">
+                2015-06-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>音频，视屏的标签 和一些标签属性的设置<br>    <audio src="”........”"> </audio><br>autoplay 自动播放<br>controls 是否显不默认播放控件<br>loop 循环播放<br>可以写MP3,ogg.等来兼容</p>
+<video src="””"> </video>
+
+<p>autoplay 自动播放<br>controls 是否显示默认播放控件<br>loop 循环播放<br>width 设置播放窗口宽度<br>height 设置播放窗口的高度（查询浏览器支持情况）</p>
+<p>###拖曳元素<br>    页面中设置了draggable=”true”属性的元素，其中<img>、<a>标签默认是可以被拖拽的<br>1、拖拽元素<br>ondrag      应用于拖拽元素，整个拖拽过程都会调用<br>ondragstart 应用于拖拽元素，当拖拽开始时调用<br>ondragleave 应用于拖拽元素，当鼠标离开拖拽元素时调用<br>ondragend   应用于拖拽元素，当拖拽结束时调用<br>2、目标元素<br>ondragenter 应用于目标元素，当拖拽元素进入时调用<br>ondragover  应用于目标元素，当停留在目标元素上时调用<br>ondrop      应用于目标元素，当在目标元素上松开鼠标时调用<br>ondragleave 应用于目标元素，当鼠标离开目标元素时调用</a></p>
+<p>Ondragleave 和ondrop想要生效 就要阻止ondragover 的默认的行为</p>
+<p>###web 存储<br>    window.sessionStorage<br>1、生命周期为关闭浏览器窗口<br>2、在同一个窗口下数据可以共享</p>
+<p>window.localStorage</p>
+<p>1永久生效，除非手动删除<br>2、可以多窗口共享</p>
+<p>CSS3 day01</p>
+<p>##属性选择器</p>
+<p>E[attr^=val] 表示的属性值里包含val字符并且在“开始”位置；<br>E[attr$=val] 表示的属性值里包含val字符并且在“结束”位置</p>
+<p>##伪类选择器<br>以某元素相对于其父元素或兄弟元素的位置来获取元素的结构伪类<br>    nth-child(2n+1)   n&gt;=0<br>     li:nth-child(-n+6){color: green;} 通过 y =ax+b 来实现选取 </p>
+<p>E:empty 选中没有任何子节点的E元素 用在购物车上当购物车没有任何的元素的时候就隐藏 display =none</p>
+<p>##目标伪类<br>E:target 结合锚点进行使用，处于当前锚点的元素会被选中</p>
+<p>###伪元素选择器<br>        E::first-line<br>        E::first-letter<br>        E::section </p>
+<pre><code>比较重点的是::before 和::after  其中：在css3中被认为为类，而:: 被认为伪元素
+</code></pre><p>/<em><br>     ::before/::after是一对CSS3伪元素，使用::before/::after，你可以从CSS里往页面上新增内容(不再 在HTML里有相应的东西)。虽然最终生成的东西并不是真正的DOM里的内容，但这些内容能像普通内容一样显示;
+        </em>/</p>
+<p>li::after{<br>            content: “”;<br>            display: block;<br>            height: 100px;<br>            width: 100px;<br>            background-color: yellow;</p>
+<p>}<br>CSS 伪类用于向某些选择器添加特殊的效果。<br>CSS 伪元素用于将特殊的效果添加到某些选择器。</p>
+<p>/<em>当给父元素设置opacity的时候，他的子元素及内容会继承这个透明度</em>/<br>子元素只会在父元素的透明度的基础上改变其透明度，比如父元素设置了<br>0.5，子元素只能在0.5的基础上变化</p>
+<p>RGBA、HSLA模式 它们不具有继承性，即不会影响子元素的透明度</p>
+<p>transparent 不可调节透明度，始终完全透明</p>
+<p>##文字的影音的效果<br>    Text-shadow:够规定水平阴影、垂直阴影、模糊距离，以及阴影的颜色：<br>强制文本进行换行：p{word-wrap :break-word}<br>text-overflow:ellipsis; 文本溢出的用省略号</p>
+<p>##边框，边框的阴影，边框的图片，边框圆角<br>    边框的圆角:border-radius<br>边框的阴影box-shadow:水平偏移，垂直偏移,模糊度(不能为负) 颜色 inset 设置内阴影</p>
+<pre><code>边框图片的实现的步骤：
+</code></pre><p>/<em>希望通过简单的方法来实现  border-image</em>/<br>/<em>1、指定一个图片</em>/<br>/<em>2、裁切一个图片 设置裁切的尺寸</em>/<br>/<em>3、设置一个平铺效果</em>/<br>/<em>4、可以设置一个宽度</em>/</p>
+<p>round 会自动调整尺寸，完整显示边框图片<br>repeat 单纯平铺多余部分，会被“裁切”而不能完整显示。<br>Stretch  拉伸</p>
+<p>border-image: url(./images/border.png) 27 stretch repeat;</p>
+<p>必须要设置边框得样式才可以显示边框的图片</p>
+<p>###盒模型<br>    css3 中以boxing-sizing 来指定盒模型，<br>1.其中border-box 是以边框作为计算的其中内容<br>就变为 content =width -boder -padding<br>    2.content-box 是 content =width<br>意思加了border-sizing =border-box 这时候的content =width -boder -padding</p>
+<p>##背景<br>    background-size 设置背景图片的尺寸 cover 覆盖可能有部分不显示<br>    background-origin 背景图片的显示的位置 值padding-box border-box content-box<br>    backfounnd-clip 背景的绘制区域 值 paddding-box border-box content-box</p>
+<p>还要一个是多背景，以, 分割的多背景</p>
+<p>###渐变<br>1.线性的渐变 linear-gradient<br>渐变的方向<br>1、必要的元素：<br>a、方向<br>b、起始颜色<br>c、终止色；<br>background: linear-gradient(90deg,<br>                red 25%,<br>                black 50%,<br>                yellow 75%,<br>                pink<br>                );</p>
+<p>径向的渐变</p>
+<pre><code>1、必要的元素：
+</code></pre><p>a、辐射范围即圆半径<br>b、中心点 即圆的中心<br>c、渐变起始色<br>d、渐变终止色<br>只有两个参数的时候圆心在图形的对角线相交的位置，半径为到图形最远的距离，知道即可，需要使用的时候在查看<br>background:radial-gradient(100px at 100px 100px ,red,black)<br>辐射的半径 和圆心所在的位置 颜色的变化的范围</p>
+<p>##过渡<br>Transition可以实现元素不同状态间的平滑过渡（补间动画），经常用来制作动画效果。<br>transition-property设置过渡属性<br>transition-duration设置过渡时间<br>transition-timing-function设置过渡速度<br>transition-delay设置过渡延时</p>
+<pre><code>过渡实现元素不同状态的平滑过渡
+</code></pre><p>##2d transform</p>
+<pre><code>1、移动 translate(x, y) 可以改变元素的位置，x、y可为负值；
+</code></pre><p>2、缩放 scale(x, y) 可以对元素进行水平和垂直方向的缩放，x、y的取值可为小数，不可为负值；<br>4、旋转 rotate(deg) 可以对元素进行旋转，正值为顺时针，负值为逆时针；<br>5、倾斜 skew(deg, deg) 可以使元素按一定的角度进行倾斜<br>transform: skew(90deg,90deg); 这个效果很酷</p>
+<p>旋转的原点Transform-origin =left bottom，或则百分比 0% 100%</p>
+<p>##3d transform<br>左手系，z轴指向自己的<br>Perspective 当为元素定义 perspective 属性时，其子元素会获得透视效果，而不是元素本身。<br>webkit-transform-style: preserve-3d; 子元素将保留其3d的位置<br>perspective: 100px; perspective 设置3d元素距离是视图的距离 100px ;<br>当translateZ(100px)的时候就，元素移动往视图移动了100px ，就会有满屏的效果，元素离自己越来越近了，所以才会越来越大<br>transform: translateZ(100px);</p>
+<p>###动画<br>当translateZ(100px)的时候就，元素移动往视图移动了100px ，就会有满屏的效</p>
+<p>animation-name: toright;<br>            animation-duration:2s;<br>            animation-timing-function:ease-in-out;<br>            animation-delay: 1s;<br>/<em>animation-fill-mode 属性规定动画在播放之前或之后，其动画效果是否可见。</em>/<br>            animation-fill-mode: both;<br>            animation-iteration-count: infinite;<br>//设置动画的停止 默认是running<br>animation-play-state: paused;<br>//动画的简写的步骤<br>animation: toright 2s 1s ease-in-out infinite ;</p>
+<p>0%{</p>
+<pre><code>}
+50%{
+    transform: translateX(1200px);
+}
+75%{
+    transform:translateX(200px);
+}
+
+90%{
+    transform: translateX(1000px);
+}
+</code></pre><p>关于正方体的3d的盒子，1.给父元素添加perspective的属性，</p>
+<p>2，给3d 变换的父元素添加一个3d的属性<br>        transform-style: preserve-3d;<br>    3其中一个平面的rotateY(90deg) translateZ(100px) 刚好把自己移动到右面<br>4其中一个平面的rotateY(1800deg) translateZ(100px) 刚好把自己移动到后面<br>4其中一个平面的rotateY(-90deg) translateZ(100px) 刚好把自己移动到左面<br>4其中一个平面的rotateX(-90deg) translateZ(100px) 刚好把自己移动到下面<br>4其中一个平面的rotateX(90deg) translateZ(100px) 刚好把自己移动到上面<br>刚好拼接成立一个3d的盒子，但是关于这个透视的问题有待领会其含义</p>
+<p>###flex弹性的布局<br>Display:flex；开启弹性布局<br>当改变方向时候flex-direction:colum ; 就改变了主轴的方向，但是此时的justify-content依然<br>设置是主轴的排布，align-items ,然后设置是副轴的排布</p>
+<p>子元素单独设置的属性 align-self :flex-start  可以覆盖父元素得设置<br>当一行内的元素很多是会被压缩，这个时候就需要换行了，flex-wrap:wrap 开启换行<br>    然后多行的设置是用align-content的设置的，它的设置的是副轴，但是用法却是和justify的用法是一样的和align-items 一样的<br>Flex=1 flex =2 flex =3  弹性因子 </p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/03/25/字符串中的常用的API/" rel="next" title="字符串中的常用的API">
+                <i class="fa fa-chevron-left"></i> 字符串中的常用的API
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/12/25/js性能代码的优化/" rel="prev" title="js性能代码的优化">
+                js性能代码的优化 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="李直" />
+          <p class="site-author-name" itemprop="name">李直</p>
+           
+              <p class="site-description motion-element" itemprop="description">神闲气静 智深勇沉</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">李直</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

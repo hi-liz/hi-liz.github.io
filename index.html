@@ -854,6 +854,946 @@ gulp.task(&quot;htmlTest&quot;,function(){
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/01/25/原型的prototype属性/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="李直">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="hi-liz">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="hi-liz" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/01/25/原型的prototype属性/" itemprop="url">
+                  原型的prototype属性的再次总结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-01-25T19:25:55+08:00">
+                2016-01-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.每一个函数都有 一个属性 prototype<br>该属性指向一对象. 每一个函数的该对象都是存在.<br>(重点) 每一个由该函数作为构造器创建的对象, 都会默认连接到该对象上.<br>如果访问对象的方法, 而对象中没有定义, 就会在这个 构造函数.prototype<br>表示的对象中去找.<br>创建构造函数的时候就会一起生成构造函数和原型属性，构造函数.prototype ,实例化对象中没有访问的方法，那就去原型对象中寻找！</p>
+<p>2.1共享的方法放到原型中, 而独有数据与行为放在当前对象里</p>
+<p>2.2&gt; 直接给原型对象添加成员</p>
+<pre><code>Person.prototype.sayHello = function () {
+        console.log( &apos;你好, 我是 &apos; + this.name );
+    };
+
+
+2.3-&gt; 直接替换原型对象( 注意: 手动的添加 constructor 属性, 表示对应的构造函数     ) 
+// 让 Person.prototype 指向另一个对象. 直接赋值
+    Person.prototype = {
+        constructor: Person,
+        sayHello: function () {
+            console.log( &apos;第二种做法: 你好, 我是 &apos; + this.name );    
+        },
+    };
+</code></pre><p>针对构造函数而言, 原型就是 构造函数的 prototype 属性, 常常将其称为 原型属性.<br>针对实例对象而言, 原型就是 实例对象的 原型对象.</p>
+<p>属性搜索的原则，先在自己的自己本身内寻找找不到就去原型对象里寻找</p>
+<pre><code>1) 对象在调用方法或访问属性的时候,   首先在当前对象中查询.如果有该成员使用并停止查找.
+2) 如果没有该成员就在其原型对象中查找. 如果有该成员即使用, 并停止查找.
+3) 如果还没有就到 该对象的 原型对象 的 原型对象中查找.
+4) 最后会查到 Object.prototype 上. 如果还没有即 返回 undefined.
+</code></pre><p>函数的4种调用模式:</p>
+<pre><code>1 函数调用模式
+ 如果一个函数与任何对象都没有联系，此时就叫做函数
+ function fn() {}
+ this -》 window
+
+2 方法调用模式
+ 如果一个函数是挂载在某个对象中，此时叫做方法
+ var obj = { fn: function() {} }
+ obj.fn();
+ this -&gt; obj
+
+3 构造函数调用模式
+ var Person = function() {};
+ var p = new Person();
+ this -&gt; 新创建出来的实例对象
+
+4 call / apply
+ 这种方式中，想让 this 指向谁，就可以指向谁！！
+在分析this问题的时候，不要管函数是怎么来的，只看函数是怎么调用的！！！
+
+
+1 先确定 this 是属于那个函数的
+2 在看当前函数是怎么被调用的
+setInterval 和 setTimeout 中的this都是 window
+setTimeout(function() {
+ console.log(this); // window
+}, 100);
+</code></pre><p>还有一个就是闭包的概念：</p>
+<pre><code>闭包的概念：就是一个被包裹的隔离的空间
+
+Js中的函数是一个具有变量作用域隔离特性的内存结构，即一个闭包
+定义一个函数具有闭包的特性
+闭包的概念是间接的访问被隔离的内部的数据
+
+我的理解是，闭包就是能够读取其他函数内部变量的函数。
+它的最大用处有两个，一个是前面提到的可以读取函数内部的变量，另一个就是让这些变 量的值始终保持在内存中。
+
+闭包不是那么的神秘的，理解函数
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/12/25/js性能代码的优化/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="李直">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="hi-liz">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="hi-liz" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/12/25/js性能代码的优化/" itemprop="url">
+                  js性能代码的优化
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-12-25T20:30:55+08:00">
+                2015-12-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>网上看的关于js代码的优化，一点自己总结，谢谢博主的分享！！</p>
+<p>一、 让代码简洁：一些简略的表达方式也会产生很好的优化<br>eg：x=x+1;在不影响功能的情况下可以简写为x++;</p>
+<p>二、 变量名方法名尽量在不影响语意的情况下简单。（可以选择首字母命名）<br>eg：定义数组的长度可以取名为：ArrLen而不需要取为ArrayLength。</p>
+<p>三、 关于JS的循环，循环是一种常用的流程控制。<br>JS提供了三种循环：for(;;)、while()、for(in)。在这三种循环中for(in)的效率最差，因为它需要查询Hash键，因此应尽量少用for(in)循环，for(;;)、while()循环的性能基本持平。当然，推荐使用for循环，如果循环变量递增或递减，不要单独对循环变量赋值，而应该使用嵌套的++或–运算符。</p>
+<p>四、 如果需要遍历数组，应该先缓存数组长度，将数组长度放入局部变量中，避免多次查询数组长度。<br>因为我们常常要根据字符串、数组的长度进行循环，而通常这个长度是不变的，比如每次查询a.length，就要额外进行一个操作，而预先把var len=a.length，则就少了一次查询。</p>
+<p>五、 尽量选用局部变量而不是全局变量。<br>局部变量的访问速度要比全局变量的访问速度更快，因为全局变量其实是window对象的成员，而局部变量是放在函数的栈里的。</p>
+<p>六、 尽量少使用eval。<br>每次使用eval需要消耗大量时间，这时候使用JS所支持的闭包可以实现函数模板。</p>
+<p>七、 减少对象查找<br>因为JavaScript的解释性，所以a.b.c.d.e，需要进行至少4次查询操作，先检查a再检查a中的b，再检查b中的c，如此往下。所以如果这样的表达式重复出现，只要可能，应该尽量少出现这样的表达式，可以利用局部变量，把它放入一个临时的地方进行查询。</p>
+<p>八、 字符串连接。<br>如果是追加字符串，最好使用s+=anotherStr操作，而不是要使用s=s+anotherStr。<br>如果要连接多个字符串，应该少使用+=，如s+=a;s+=b;s+=c;应该写成s+=a + b + c；<br>而如果是收集字符串，比如多次对同一个字符串进行+=操作的话，最好使用一个缓存。怎么用呢？使用JavaScript数组来收集，最后使用join方法连接起来，如下<br>var buf = new Array();for(var i = 0; i &lt; 100; i++){ buf.push(i.toString());}var all = buf.join(“”);</p>
+<p>九、 类型转换</p>
+<ol>
+<li>把数字转换成字符串，应用”” + 1，虽然看起来比较丑一点，但事实上这个效率是最高的，性能上来说：(“” +) &gt; String() &gt; .toString() &gt; new String()<br>尽量使用编译时就能使用的内部操作要比运行时使用的用户操作要快。<br>String()属于内部函数，所以速度很快，而.toString()要查询原型中的函数，所以速度逊色一些，new String()用于返回一个精确的副本。</li>
+<li>浮点数转换成整型，这个更容易出错，很多人喜欢使用parseInt()，其实parseInt()是用于将字符串转换成数字，而不是浮点数和整型之间的转换，我们应该使用Math.floor()或者Math.round()。Math是内部对象，所以Math.floor()其实并没有多少查询方法和调用的时间，速度是最快的。</li>
+<li>对于自定义的对象，如果定义了toString()方法来进行类型转换的话，推荐显式调用toString()，因为内部的操作在尝试所有可能性之后，会尝试对象的toString()方法尝试能否转化为String，所以直接调用这个方法效率会更高</li>
+</ol>
+<p>十、 尽量作用JSON格式来创建对象，而不是var obj=new Object()方法。<br>因为前者是直接复制，而后者需要调用构造器，因而前者的性能更好。</p>
+<p>十一、 当需要使用数组时，也尽量使用JSON格式的语法，<br>使用JSON格式的语法即直接使用如下语法定义数组：[parrm,param,param…],而不是采用new Array(parrm,param,param…)这种语法。因为使用JSON格式的语法是引擎直接解释的。而后者则需要调用Array的构造器。</p>
+<p>十二、 对字符串进行循环操作，例如替换、查找，就使用正则表达式。<br>因为JS的循环速度比较慢，而正则表达式的操作是用C写成的API，性能比较好。</p>
+<p>十三、 插入HTML<br>很多人喜欢在JavaScript中使用document.write来给页面生成内容。事实上这样的效率较低，如果需要直接插入HTML，可以找一个容器元素，比如指定一个div或者span，并设置他们的innerHTML来将自己的HTML代码插入到页面中。</p>
+<p>十四、 对象查询<br>使用[“”]查询要比.items()更快</p>
+<p>十五、 定时器<br>如果针对的是不断运行的代码，不应该使用setTimeout，而应该是用setInterval。setTimeout每次要重新设置一个定时器。</p>
+<p>十六、 尽量减少DOM调用</p>
+<p>十七、 重构<script>和<style> 调用方式或合并js文件来优化请求次数，。</p>
+<p>十八、 对于大的JS对象，因为创建时时间和空间的开销都比较大，因此应该尽量考虑采用缓存。</p>
+<p>十九、 将脚本放到底部。<br>脚本一般是用来于用户交互的，建议可以等页面加载完成之后再加载js文件。所以，脚本和CSS正好相反，脚本应该放在页面的底部。</p>
+<p>二十、 除去JavaScript中的空白区域<br>可以用相关工具去除空白注释等,将所有的名称都重新用一个或两个字母来命名将带来显著的改善。（但需要留有一个未验收的备份文件，方便以后维护）</p>
+</script></p>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/06/25/h5c3的学习体验/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="李直">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="hi-liz">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="hi-liz" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/06/25/h5c3的学习体验/" itemprop="url">
+                  h5c3的学习体验
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-06-25T20:00:00+08:00">
+                2015-06-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>音频，视屏的标签 和一些标签属性的设置<br>    <audio src="”........”"> </audio><br>autoplay 自动播放<br>controls 是否显不默认播放控件<br>loop 循环播放<br>可以写MP3,ogg.等来兼容</p>
+<video src="””"> </video>
+
+<p>autoplay 自动播放<br>controls 是否显示默认播放控件<br>loop 循环播放<br>width 设置播放窗口宽度<br>height 设置播放窗口的高度（查询浏览器支持情况）</p>
+<p>###拖曳元素<br>    页面中设置了draggable=”true”属性的元素，其中<img>、<a>标签默认是可以被拖拽的<br>1、拖拽元素<br>ondrag      应用于拖拽元素，整个拖拽过程都会调用<br>ondragstart 应用于拖拽元素，当拖拽开始时调用<br>ondragleave 应用于拖拽元素，当鼠标离开拖拽元素时调用<br>ondragend   应用于拖拽元素，当拖拽结束时调用<br>2、目标元素<br>ondragenter 应用于目标元素，当拖拽元素进入时调用<br>ondragover  应用于目标元素，当停留在目标元素上时调用<br>ondrop      应用于目标元素，当在目标元素上松开鼠标时调用<br>ondragleave 应用于目标元素，当鼠标离开目标元素时调用</a></p>
+<p>Ondragleave 和ondrop想要生效 就要阻止ondragover 的默认的行为</p>
+<p>###web 存储<br>    window.sessionStorage<br>1、生命周期为关闭浏览器窗口<br>2、在同一个窗口下数据可以共享</p>
+<p>window.localStorage</p>
+<p>1永久生效，除非手动删除<br>2、可以多窗口共享</p>
+<p>CSS3 day01</p>
+<p>##属性选择器</p>
+<p>E[attr^=val] 表示的属性值里包含val字符并且在“开始”位置；<br>E[attr$=val] 表示的属性值里包含val字符并且在“结束”位置</p>
+<p>##伪类选择器<br>以某元素相对于其父元素或兄弟元素的位置来获取元素的结构伪类<br>    nth-child(2n+1)   n&gt;=0<br>     li:nth-child(-n+6){color: green;} 通过 y =ax+b 来实现选取 </p>
+<p>E:empty 选中没有任何子节点的E元素 用在购物车上当购物车没有任何的元素的时候就隐藏 display =none</p>
+<p>##目标伪类<br>E:target 结合锚点进行使用，处于当前锚点的元素会被选中</p>
+<p>###伪元素选择器<br>        E::first-line<br>        E::first-letter<br>        E::section </p>
+<pre><code>比较重点的是::before 和::after  其中：在css3中被认为为类，而:: 被认为伪元素
+</code></pre><p>/<em><br>     ::before/::after是一对CSS3伪元素，使用::before/::after，你可以从CSS里往页面上新增内容(不再 在HTML里有相应的东西)。虽然最终生成的东西并不是真正的DOM里的内容，但这些内容能像普通内容一样显示;
+        </em>/</p>
+<p>li::after{<br>            content: “”;<br>            display: block;<br>            height: 100px;<br>            width: 100px;<br>            background-color: yellow;</p>
+<p>}<br>CSS 伪类用于向某些选择器添加特殊的效果。<br>CSS 伪元素用于将特殊的效果添加到某些选择器。</p>
+<p>/<em>当给父元素设置opacity的时候，他的子元素及内容会继承这个透明度</em>/<br>子元素只会在父元素的透明度的基础上改变其透明度，比如父元素设置了<br>0.5，子元素只能在0.5的基础上变化</p>
+<p>RGBA、HSLA模式 它们不具有继承性，即不会影响子元素的透明度</p>
+<p>transparent 不可调节透明度，始终完全透明</p>
+<p>##文字的影音的效果<br>    Text-shadow:够规定水平阴影、垂直阴影、模糊距离，以及阴影的颜色：<br>强制文本进行换行：p{word-wrap :break-word}<br>text-overflow:ellipsis; 文本溢出的用省略号</p>
+<p>##边框，边框的阴影，边框的图片，边框圆角<br>    边框的圆角:border-radius<br>边框的阴影box-shadow:水平偏移，垂直偏移,模糊度(不能为负) 颜色 inset 设置内阴影</p>
+<pre><code>边框图片的实现的步骤：
+</code></pre><p>/<em>希望通过简单的方法来实现  border-image</em>/<br>/<em>1、指定一个图片</em>/<br>/<em>2、裁切一个图片 设置裁切的尺寸</em>/<br>/<em>3、设置一个平铺效果</em>/<br>/<em>4、可以设置一个宽度</em>/</p>
+<p>round 会自动调整尺寸，完整显示边框图片<br>repeat 单纯平铺多余部分，会被“裁切”而不能完整显示。<br>Stretch  拉伸</p>
+<p>border-image: url(./images/border.png) 27 stretch repeat;</p>
+<p>必须要设置边框得样式才可以显示边框的图片</p>
+<p>###盒模型<br>    css3 中以boxing-sizing 来指定盒模型，<br>1.其中border-box 是以边框作为计算的其中内容<br>就变为 content =width -boder -padding<br>    2.content-box 是 content =width<br>意思加了border-sizing =border-box 这时候的content =width -boder -padding</p>
+<p>##背景<br>    background-size 设置背景图片的尺寸 cover 覆盖可能有部分不显示<br>    background-origin 背景图片的显示的位置 值padding-box border-box content-box<br>    backfounnd-clip 背景的绘制区域 值 paddding-box border-box content-box</p>
+<p>还要一个是多背景，以, 分割的多背景</p>
+<p>###渐变<br>1.线性的渐变 linear-gradient<br>渐变的方向<br>1、必要的元素：<br>a、方向<br>b、起始颜色<br>c、终止色；<br>background: linear-gradient(90deg,<br>                red 25%,<br>                black 50%,<br>                yellow 75%,<br>                pink<br>                );</p>
+<p>径向的渐变</p>
+<pre><code>1、必要的元素：
+</code></pre><p>a、辐射范围即圆半径<br>b、中心点 即圆的中心<br>c、渐变起始色<br>d、渐变终止色<br>只有两个参数的时候圆心在图形的对角线相交的位置，半径为到图形最远的距离，知道即可，需要使用的时候在查看<br>background:radial-gradient(100px at 100px 100px ,red,black)<br>辐射的半径 和圆心所在的位置 颜色的变化的范围</p>
+<p>##过渡<br>Transition可以实现元素不同状态间的平滑过渡（补间动画），经常用来制作动画效果。<br>transition-property设置过渡属性<br>transition-duration设置过渡时间<br>transition-timing-function设置过渡速度<br>transition-delay设置过渡延时</p>
+<pre><code>过渡实现元素不同状态的平滑过渡
+</code></pre><p>##2d transform</p>
+<pre><code>1、移动 translate(x, y) 可以改变元素的位置，x、y可为负值；
+</code></pre><p>2、缩放 scale(x, y) 可以对元素进行水平和垂直方向的缩放，x、y的取值可为小数，不可为负值；<br>4、旋转 rotate(deg) 可以对元素进行旋转，正值为顺时针，负值为逆时针；<br>5、倾斜 skew(deg, deg) 可以使元素按一定的角度进行倾斜<br>transform: skew(90deg,90deg); 这个效果很酷</p>
+<p>旋转的原点Transform-origin =left bottom，或则百分比 0% 100%</p>
+<p>##3d transform<br>左手系，z轴指向自己的<br>Perspective 当为元素定义 perspective 属性时，其子元素会获得透视效果，而不是元素本身。<br>webkit-transform-style: preserve-3d; 子元素将保留其3d的位置<br>perspective: 100px; perspective 设置3d元素距离是视图的距离 100px ;<br>当translateZ(100px)的时候就，元素移动往视图移动了100px ，就会有满屏的效果，元素离自己越来越近了，所以才会越来越大<br>transform: translateZ(100px);</p>
+<p>###动画<br>当translateZ(100px)的时候就，元素移动往视图移动了100px ，就会有满屏的效</p>
+<p>animation-name: toright;<br>            animation-duration:2s;<br>            animation-timing-function:ease-in-out;<br>            animation-delay: 1s;<br>/<em>animation-fill-mode 属性规定动画在播放之前或之后，其动画效果是否可见。</em>/<br>            animation-fill-mode: both;<br>            animation-iteration-count: infinite;<br>//设置动画的停止 默认是running<br>animation-play-state: paused;<br>//动画的简写的步骤<br>animation: toright 2s 1s ease-in-out infinite ;</p>
+<p>0%{</p>
+<pre><code>}
+50%{
+    transform: translateX(1200px);
+}
+75%{
+    transform:translateX(200px);
+}
+
+90%{
+    transform: translateX(1000px);
+}
+</code></pre><p>关于正方体的3d的盒子，1.给父元素添加perspective的属性，</p>
+<p>2，给3d 变换的父元素添加一个3d的属性<br>        transform-style: preserve-3d;<br>    3其中一个平面的rotateY(90deg) translateZ(100px) 刚好把自己移动到右面<br>4其中一个平面的rotateY(1800deg) translateZ(100px) 刚好把自己移动到后面<br>4其中一个平面的rotateY(-90deg) translateZ(100px) 刚好把自己移动到左面<br>4其中一个平面的rotateX(-90deg) translateZ(100px) 刚好把自己移动到下面<br>4其中一个平面的rotateX(90deg) translateZ(100px) 刚好把自己移动到上面<br>刚好拼接成立一个3d的盒子，但是关于这个透视的问题有待领会其含义</p>
+<p>###flex弹性的布局<br>Display:flex；开启弹性布局<br>当改变方向时候flex-direction:colum ; 就改变了主轴的方向，但是此时的justify-content依然<br>设置是主轴的排布，align-items ,然后设置是副轴的排布</p>
+<p>子元素单独设置的属性 align-self :flex-start  可以覆盖父元素得设置<br>当一行内的元素很多是会被压缩，这个时候就需要换行了，flex-wrap:wrap 开启换行<br>    然后多行的设置是用align-content的设置的，它的设置的是副轴，但是用法却是和justify的用法是一样的和align-items 一样的<br>Flex=1 flex =2 flex =3  弹性因子 </p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/03/25/字符串中的常用的API/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="李直">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="hi-liz">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="hi-liz" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/03/25/字符串中的常用的API/" itemprop="url">
+                  字符串中的常用的API
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-03-25T19:00:55+08:00">
+                2015-03-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>//anchor() 创建HTML的锚<br>        var str1 =”Hello world”;<br>            document.write(str1.anchor());</p>
+<pre><code>//charAt() 方法可返回指定位置的字符。
+//字符串中第一个字符的下标是 0。如果参数 index 不在 0 与 string.length 之间，该方法将返回一个空字符串。
+var str2 =&quot;Hello world&quot;;
+var str3 =str2.charAt(4);
+console.log(str3);//o
+
+//concat()方法用于连接两个或多个字符串。
+var str4 =&quot;GoodTime foodSmell&quot;;
+var str5=str4.concat(str2,&quot;haohaogan&quot;);
+console.log(str4);//不修改原来的字符串
+console.log(str5);
+
+//indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置。
+//如果要检索的字符串值没有出现，则该方法返回 -1。
+var str6 =&quot;GoodTime foodSmell&quot;;
+    console.log(str6.indexOf(&quot;Time&quot;,4));//结果是4 ,设定为5的时候找不到返回-1
+
+//lastIndexOf() 方法可返回一个指定的字符串值最后出现的位置，在一个字符串中的指定位置从后向前搜索。
+//
+//类上
+
+//link() 将字符串显示未链接
+document.write(str4.link());
+
+//match() 方法可在字符串内检索指定的值，或找到一个或多个正则表达式的匹配。
+var str7 =&quot;GoodTime foodSmell Goo&quot;;
+console.log(str7.match(&quot;Goo&quot;).input);//返回的是指定的值，并且以数组的形式返回
+    //.input 返回的是对str7的引用
+document.write(str7.match(&quot;Goo&quot;));
+
+console.log(str7.match(/Goo/g));//加全局标志g 后返回的数组只有匹配的元素，
+                        //没有index 和input 
+ //replace() 方法用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。
+ //
+ var str7 =&quot;dadahahahe dada&quot;;
+console.log( str7.replace(&apos;dada&apos;,&quot;mm&quot;)); //hahahe mm
+
+console.log(str7.replace(/dada/g,&apos;dd&apos;));
+
+var name = &quot;Doe, John heheh&quot;;
+var name1 =name.replace(/(\w+)\s*, \s*(\w+)\s*(\w+)/, &quot;$2 $3 $1&quot;);
+//$是（）分组的引用
+console.log(name1);
+
+
+//search() 方法用于检索字符串中指定的子字符串，或检索与正则表达式相匹配的子字符串
+//stringObject 中第一个与 regexp 相匹配的子串的起始位置 ,没有找到的返回-1。
+name = &quot;Doe, John heheh&quot;;
+console.log(name.search(/John/)) //5
+console.log(name.search(&apos;John&apos;)) //5
+
+
+//slice() 方法可提取字符串的某个部分，并以新的字符串返回被提取的部分
+//如果负数是从尾部开始计数的(start ,end) end 的部分取不到
+var str8 =&apos;hi,my cakos&apos;
+console.log(str8.slice(0,2));
+
+//split() 方法用于把一个字符串分割成字符串数组。(分割的形式,，数组的最大的长度)
+var str9 =&apos;how are you doing today&apos;;
+console.log(str9.split(&quot; &quot;));
+console.log(str9.split(&apos;&apos;)) //如果是空字符串的话就会分割单个的字母和空格的
+
+//定义和用法
+//sub() 方法用于把字符串显示为下标。
+//
+var str10 =&apos;hi,my alias&apos;;
+
+document.write(str10.sub());//显示在页面上的作为一个下标来显示
+
+//substr() 方法可在字符串中抽取从 start 下标开始的指定数目的字符。(start ,length)
+                                //start 可正可负
+var str11 =&apos;how are you doing today&apos;;
+
+console.log(str11.substr(2,3));// w a 
+
+//substring() 方法用于提取字符串中介于两个指定下标之间的字符。(start,stop)
+//取不到stop的值
+
+var str12 =&apos;how are you doing today&apos;;
+
+console.log(str12.substring(2,5)) //w a 
+</code></pre><p> 基本的API应该要熟悉的</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/03/20/数组中的常用的API/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="李直">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="hi-liz">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="hi-liz" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/03/20/数组中的常用的API/" itemprop="url">
+                  数组中的常用的API
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-03-20T21:06:55+08:00">
+                2015-03-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>var arr=[“lzi”,”nihao”,”buzhi”,4,6];</p>
+<pre><code>     var result =arr.splice(-2,2,&quot;heheheh&quot;,&quot;再添加一个&quot;);
+            // 第一个参数是删除的索引，负数就从结尾处开始，第二个是删除的个数
+            // 第三个后的参数是要添加到数组当中的项
+
+    console.log(result);//返回值是被删除的数组，新的数组 [4, 6]
+    console.log(arr);//[&quot;lzi&quot;, &quot;nihao&quot;, &quot;buzhi&quot;, &quot;heheheh&quot;, &quot;再添加一个&quot;]
+
+
+    ///slice 方法
+    console.log(&quot;---------------这里是slice的方法的使用的结果&quot;)
+    var result2 = arr.slice(-5,-1);//(start,end )不包括end 的值返回的 是一个子数组，不会修改数组
+    console.log(arr);//[&quot;lzi&quot;, &quot;nihao&quot;, &quot;buzhi&quot;, &quot;heheheh&quot;, &quot;再添加一个&quot;]
+    console.log(result2);//[&quot;lzi&quot;, &quot;nihao&quot;, &quot;buzhi&quot;, &quot;heheheh&quot;]
+
+
+//数组得concat的方法的
+//concat的方法用于连接两个或则多个数组，参数可以是具体的数或则是数组
+    var arr3 =[1,2,3];
+    //参数是具体的额数字的时候
+    var arr4 =arr3.concat(&quot;lizh&quot;,&quot;hello&quot;);
+    console.log(arr3)//这个值不会改变
+    console.log(arr4) //[1, 2, 3, &quot;lizh&quot;, &quot;hello&quot;]
+    //参数是数组的时候,可以是多个数组
+    var arr5 =arr3.concat([&quot;heheh&quot;,&quot;smile&quot;],[&quot;happy&quot;]);
+    console.log(arr5);//[1, 2, 3, &quot;heheh&quot;, &quot;smile&quot;, &quot;happy&quot;]
+
+//数组中的jion()方法是把所有的数组放入字符串中，()内填写的是分割的方式
+    var arr6 =[&quot;nihao&quot;,&quot;leiz&quot;,&quot;hehhe&quot;,2,6,8];
+    var arr7 =arr6.join();
+    var arr8 =arr6.join(&quot;|&quot;);//就以|来分割数组
+    console.log(arr7);
+    console.log(arr8);
+
+// 数组中的pop()方法；
+    var arr9 =[&quot;nihao&quot;,&quot;leiz&quot;,&quot;hehhe&quot;,2,6,&quot;keyid&quot;];
+    //删除最后一个元素并且返回删除的那个值
+    var arr10 =arr9.pop();
+    console.log(arr9);//[&quot;nihao&quot;, &quot;leiz&quot;, &quot;hehhe&quot;, 2, 6]
+                    //这个数组中的最后一项就被删除了
+                    //如果数组是空数组，则不会删除，返回值是undefined
+    console.log(arr10);//&quot;keyid&quot;
+    var arr11 =[].pop();
+    console.log(arr11);//undefined
+
+//shift()的方法用于删除数组第一项，返回删除第一个值
+    var arr14 =[&quot;hao&quot;,&quot;buhao&quot;,&quot;yier&quot;,2,5];
+    var arr15 =arr14.shift();
+    console.log(arr14);
+    console.log(arr15);
+
+//push() 向数组的末尾添加有一个或则多个元素，返回值是数组的长度
+    var arr12 =[2,&quot;we&quot;,&quot;li&quot;,23];
+    var arr13 =arr12.push(&quot;zhi&quot;,&quot;haoya&quot;);
+    console.log(arr12);
+    console.log(arr13); //返回的是数组的长度值
+    //pop() 和 push()功能类似，先进后出栈的功能
+
+//unshift() 向数组第一项添加元素，并且返回新的长度
+console.log(&quot;---------------这里是unshift的方法的使用的结果&quot;)
+var arr14 =[&quot;3&quot;,&quot;lixh&quot;,&quot;hehe&quot;,4];
+var arr15 =arr14.unshift(&quot;nide&quot;,&quot;wode&quot;); 
+    console.log(arr14)
+
+console.log(&quot;---------------这里是reverse()的方法的使用的结果&quot;)
+//reverse()的方法用于改变数组顺序，不改变原来的数组
+var arr16 =[&quot;lixi&quot;,&quot;hehe&quot;,&quot;zzouyi&quot;,24,45];
+var arr17 =arr16.reverse();
+    console.log(arr16);//[45, 24, &quot;zzouyi&quot;, &quot;hehe&quot;, &quot;lixi&quot;]
+    console.log(arr17);//[45, 24, &quot;zzouyi&quot;, &quot;hehe&quot;, &quot;lixi&quot;]
+
+console.log(&quot;---------------这里是sort()的方法的使用的结果&quot;)
+var arr18 =[21,0,4,24,45];
+var arr19 =arr18.sort(function(a,b){
+    return a-b;
+});
+    console.log(arr18);
+    console.log(arr19);
+
+console.log(&quot;---------------这里是toSource()的方法表示对象的源代码&quot;);
+
+    // function Person(name,age,work){
+    //  this.name =name;
+    //  this.age =age;
+    //  this.work=work;
+    // }
+
+    // var per =new Person(&quot;li&quot;,26,&quot;engineer&quot;);
+    // console.log(per);
+
+
+    //  function employee(name,job,born)
+    //  {
+    //  this.name=name;
+    //  this.job=job;
+    //  this.born=born;
+    //  }
+    //  
+    //  var bill=new employee(&quot;Bill Gates&quot;,&quot;Engineer&quot;,1985);
+    //  
+    //  document.write(bill.toSource());
+</code></pre><p>console.log(“—————这里是toString()的方法把数组转化成字符串和jion()没有参数”);</p>
+<pre><code>var arr20 =[&quot;niao&quot;,&quot;xiaoping&quot;,&quot;ahdoe&quot;];
+var arr21 =arr20.toString();
+    console.log(arr20);
+    console.log(arr21);
+</code></pre><p>console.log(“—————这里是toString()的方法把数组转化成字符串和jion()没有参数”);</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -899,7 +1839,7 @@ gulp.task(&quot;htmlTest&quot;,function(){
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
