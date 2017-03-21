@@ -87,37 +87,15 @@
 
 
 
-<meta name="description" content="//执行文件的步骤时//1.获取文件的//处理文件内容//3.导出文件的内
-var fs =require(&amp;apos;fs&amp;apos;)
-//加载path的核心的模块 
-var path =require(&amp;apos;path&amp;apos;);
-
-var less =require(&amp;apos;less&amp;apos;);
-// console.log(less);
-//注意path核心模块的作用，拼">
-<meta property="og:type" content="article">
-<meta property="og:title" content="nodejs实现less自动转css">
-<meta property="og:url" content="http://yoursite.com/2016/11/23/nodejs实现less自动转css/index.html">
+<meta name="description" content="神闲气静 智深勇沉">
+<meta property="og:type" content="website">
+<meta property="og:title" content="hi-liz">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="hi-liz">
-<meta property="og:description" content="//执行文件的步骤时//1.获取文件的//处理文件内容//3.导出文件的内
-var fs =require(&amp;apos;fs&amp;apos;)
-//加载path的核心的模块 
-var path =require(&amp;apos;path&amp;apos;);
-
-var less =require(&amp;apos;less&amp;apos;);
-// console.log(less);
-//注意path核心模块的作用，拼">
-<meta property="og:updated_time" content="2017-03-13T03:11:52.872Z">
+<meta property="og:description" content="神闲气静 智深勇沉">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="nodejs实现less自动转css">
-<meta name="twitter:description" content="//执行文件的步骤时//1.获取文件的//处理文件内容//3.导出文件的内
-var fs =require(&amp;apos;fs&amp;apos;)
-//加载path的核心的模块 
-var path =require(&amp;apos;path&amp;apos;);
-
-var less =require(&amp;apos;less&amp;apos;);
-// console.log(less);
-//注意path核心模块的作用，拼">
+<meta name="twitter:title" content="hi-liz">
+<meta name="twitter:description" content="神闲气静 智深勇沉">
 
 
 
@@ -145,13 +123,13 @@ var less =require(&amp;apos;less&amp;apos;);
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/23/nodejs实现less自动转css/"/>
+  <link rel="canonical" href="http://yoursite.com/page/2/"/>
 
 
 
 
 
-  <title> nodejs实现less自动转css | hi-liz </title>
+  <title> hi-liz </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -176,7 +154,9 @@ var less =require(&amp;apos;less&amp;apos;);
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left 
+   page-home 
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -299,9 +279,9 @@ var less =require(&amp;apos;less&amp;apos;);
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -310,7 +290,7 @@ var less =require(&amp;apos;less&amp;apos;);
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/23/nodejs实现less自动转css/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/03/20/数组中的常用的API/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="李直">
@@ -334,7 +314,10 @@ var less =require(&amp;apos;less&amp;apos;);
             
             
               
-                nodejs实现less自动转css
+                
+                <a class="post-title-link" href="/2015/03/20/数组中的常用的API/" itemprop="url">
+                  数组中的常用的API
+                </a>
               
             
           </h1>
@@ -349,8 +332,8 @@ var less =require(&amp;apos;less&amp;apos;);
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-23T20:01:23+08:00">
-                2016-11-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-03-20T21:06:55+08:00">
+                2015-03-20
               </time>
             
 
@@ -385,54 +368,126 @@ var less =require(&amp;apos;less&amp;apos;);
       
 
       
-        <p>//执行文件的步骤时<br>//1.获取文件的<br>//处理文件内容<br>//3.导出文件的内</p>
-<pre><code>var fs =require(&apos;fs&apos;)
-//加载path的核心的模块 
-var path =require(&apos;path&apos;);
+        
+          
+            <p>var arr=[“lzi”,”nihao”,”buzhi”,4,6];</p>
+<pre><code>     var result =arr.splice(-2,2,&quot;heheheh&quot;,&quot;再添加一个&quot;);
+            // 第一个参数是删除的索引，负数就从结尾处开始，第二个是删除的个数
+            // 第三个后的参数是要添加到数组当中的项
 
-var less =require(&apos;less&apos;);
-// console.log(less);
-</code></pre><p>//注意path核心模块的作用，拼接路径上很有用<br>//添加watchFile 监控文件的变化只要是文件变化了，就从新读改写文件</p>
-<pre><code>var lessPath = path.join(__dirname,&apos;../demo/src/main.less&apos;)
-var cssPath =path.join(__dirname,&apos;../demo/dist/main.css&apos;)
+    console.log(result);//返回值是被删除的数组，新的数组 [4, 6]
+    console.log(arr);//[&quot;lzi&quot;, &quot;nihao&quot;, &quot;buzhi&quot;, &quot;heheheh&quot;, &quot;再添加一个&quot;]
 
-fs.watchFile(lessPath,{interval:2000},
-    function(curr,prev){
-    //只要文件改动这个函数就会执行 不需要这些参数的使用
-    fs.readFile(lessPath,
-        &apos;UTF-8&apos;,function(err,data){
-            if(err) throw err
-            // console.log(data);
-            //使用less的render 方法来转化less 到css 
-            less.render(data,function(e,output){
-                // console.log(output.css)
-                //把文件写入到css页面中
-                fs.writeFile(cssPath,
-                    output.css,function(err){
 
-                    if(err) throw err
-                    console.log(&apos;It is save&apos;)
-                })
+    ///slice 方法
+    console.log(&quot;---------------这里是slice的方法的使用的结果&quot;)
+    var result2 = arr.slice(-5,-1);//(start,end )不包括end 的值返回的 是一个子数组，不会修改数组
+    console.log(arr);//[&quot;lzi&quot;, &quot;nihao&quot;, &quot;buzhi&quot;, &quot;heheheh&quot;, &quot;再添加一个&quot;]
+    console.log(result2);//[&quot;lzi&quot;, &quot;nihao&quot;, &quot;buzhi&quot;, &quot;heheheh&quot;]
 
-            })
-    })
 
-})
-</code></pre>
+//数组得concat的方法的
+//concat的方法用于连接两个或则多个数组，参数可以是具体的数或则是数组
+    var arr3 =[1,2,3];
+    //参数是具体的额数字的时候
+    var arr4 =arr3.concat(&quot;lizh&quot;,&quot;hello&quot;);
+    console.log(arr3)//这个值不会改变
+    console.log(arr4) //[1, 2, 3, &quot;lizh&quot;, &quot;hello&quot;]
+    //参数是数组的时候,可以是多个数组
+    var arr5 =arr3.concat([&quot;heheh&quot;,&quot;smile&quot;],[&quot;happy&quot;]);
+    console.log(arr5);//[1, 2, 3, &quot;heheh&quot;, &quot;smile&quot;, &quot;happy&quot;]
+
+//数组中的jion()方法是把所有的数组放入字符串中，()内填写的是分割的方式
+    var arr6 =[&quot;nihao&quot;,&quot;leiz&quot;,&quot;hehhe&quot;,2,6,8];
+    var arr7 =arr6.join();
+    var arr8 =arr6.join(&quot;|&quot;);//就以|来分割数组
+    console.log(arr7);
+    console.log(arr8);
+
+// 数组中的pop()方法；
+    var arr9 =[&quot;nihao&quot;,&quot;leiz&quot;,&quot;hehhe&quot;,2,6,&quot;keyid&quot;];
+    //删除最后一个元素并且返回删除的那个值
+    var arr10 =arr9.pop();
+    console.log(arr9);//[&quot;nihao&quot;, &quot;leiz&quot;, &quot;hehhe&quot;, 2, 6]
+                    //这个数组中的最后一项就被删除了
+                    //如果数组是空数组，则不会删除，返回值是undefined
+    console.log(arr10);//&quot;keyid&quot;
+    var arr11 =[].pop();
+    console.log(arr11);//undefined
+
+//shift()的方法用于删除数组第一项，返回删除第一个值
+    var arr14 =[&quot;hao&quot;,&quot;buhao&quot;,&quot;yier&quot;,2,5];
+    var arr15 =arr14.shift();
+    console.log(arr14);
+    console.log(arr15);
+
+//push() 向数组的末尾添加有一个或则多个元素，返回值是数组的长度
+    var arr12 =[2,&quot;we&quot;,&quot;li&quot;,23];
+    var arr13 =arr12.push(&quot;zhi&quot;,&quot;haoya&quot;);
+    console.log(arr12);
+    console.log(arr13); //返回的是数组的长度值
+    //pop() 和 push()功能类似，先进后出栈的功能
+
+//unshift() 向数组第一项添加元素，并且返回新的长度
+console.log(&quot;---------------这里是unshift的方法的使用的结果&quot;)
+var arr14 =[&quot;3&quot;,&quot;lixh&quot;,&quot;hehe&quot;,4];
+var arr15 =arr14.unshift(&quot;nide&quot;,&quot;wode&quot;); 
+    console.log(arr14)
+
+console.log(&quot;---------------这里是reverse()的方法的使用的结果&quot;)
+//reverse()的方法用于改变数组顺序，不改变原来的数组
+var arr16 =[&quot;lixi&quot;,&quot;hehe&quot;,&quot;zzouyi&quot;,24,45];
+var arr17 =arr16.reverse();
+    console.log(arr16);//[45, 24, &quot;zzouyi&quot;, &quot;hehe&quot;, &quot;lixi&quot;]
+    console.log(arr17);//[45, 24, &quot;zzouyi&quot;, &quot;hehe&quot;, &quot;lixi&quot;]
+
+console.log(&quot;---------------这里是sort()的方法的使用的结果&quot;)
+var arr18 =[21,0,4,24,45];
+var arr19 =arr18.sort(function(a,b){
+    return a-b;
+});
+    console.log(arr18);
+    console.log(arr19);
+
+console.log(&quot;---------------这里是toSource()的方法表示对象的源代码&quot;);
+
+    // function Person(name,age,work){
+    //  this.name =name;
+    //  this.age =age;
+    //  this.work=work;
+    // }
+
+    // var per =new Person(&quot;li&quot;,26,&quot;engineer&quot;);
+    // console.log(per);
+
+
+    //  function employee(name,job,born)
+    //  {
+    //  this.name=name;
+    //  this.job=job;
+    //  this.born=born;
+    //  }
+    //  
+    //  var bill=new employee(&quot;Bill Gates&quot;,&quot;Engineer&quot;,1985);
+    //  
+    //  document.write(bill.toSource());
+</code></pre><p>console.log(“—————这里是toString()的方法把数组转化成字符串和jion()没有参数”);</p>
+<pre><code>var arr20 =[&quot;niao&quot;,&quot;xiaoping&quot;,&quot;ahdoe&quot;];
+var arr21 =arr20.toString();
+    console.log(arr20);
+    console.log(arr21);
+</code></pre><p>console.log(“—————这里是toString()的方法把数组转化成字符串和jion()没有参数”);</p>
+
+          
+        
       
     </div>
 
     <div>
       
-        
-
-      
     </div>
 
     <div>
-      
-        
-
       
     </div>
 
@@ -441,42 +496,25 @@ fs.watchFile(lessPath,{interval:2000},
       
 
       
-        
+
       
 
       
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/05/26/angular的一点小小的学习/" rel="next" title="angular的一些指令总结">
-                <i class="fa fa-chevron-left"></i> angular的一些指令总结
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/06/试一试利用node-js-搭建一个小的聊天室/" rel="prev" title="试一试利用node.js 搭建一个小的聊天室">
-                试一试利用node.js 搭建一个小的聊天室 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
       
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
 
           
           </div>
@@ -484,10 +522,6 @@ fs.watchFile(lessPath,{interval:2000},
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
         
@@ -657,10 +691,6 @@ fs.watchFile(lessPath,{interval:2000},
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
-
-
 
   
 
