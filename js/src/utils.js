@@ -2,12 +2,6 @@
 
 NexT.utils = NexT.$u = {
   /**
-   *
-   *
-   *
-   *
-   *
-   * adgsjldgj 
    * Wrap images with fancybox support.
    */
   wrapImageWithFancyBox: function () {
